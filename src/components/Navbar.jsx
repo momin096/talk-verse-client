@@ -2,9 +2,20 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/logo.png'
 import { CiLogin } from "react-icons/ci";
 import useAuth from '../context/useAuth';
+import { LuLogOut } from "react-icons/lu";
 
 const Navbar = () => {
-    const { user } = useAuth();
+    const { user, logOut } = useAuth();
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                console.log('sign Out Success');
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
 
 
     const links = <>
@@ -27,16 +38,21 @@ const Navbar = () => {
                 </div>
                 <div className="flex gap-2 items-center justify-center">
                     <div >
-                        <Link to={'/login'} className=' hidden text-white lg:flex hover:bg-[#968de7] px-5 py-2 border border-[#968de7] items-center gap-2'>Login <CiLogin className='text-2xl' /></Link>
+
+                        {
+                            user?.email ? <button onClick={handleLogOut} className=' hidden text-white lg:flex hover:bg-[#968de7] px-5 py-2 border border-[#968de7] items-center gap-2'>Log Out <LuLogOut className='text-2xl' /></button> : <Link to={'/login'} className=' hidden text-white lg:flex hover:bg-[#968de7] px-5 py-2 border border-[#968de7] items-center gap-2'>Login <CiLogin className='text-2xl' /></Link>
+                        }
+                        {/* <Link to={'/login'} className=' hidden text-white lg:flex hover:bg-[#968de7] px-5 py-2 border border-[#968de7] items-center gap-2'>Login <CiLogin className='text-2xl' /></Link> */}
                     </div>
                     <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" >
                             {
-                                user && <div className="w-12 ">
+                                user && <div className="w-12 h-12 ml-5">
                                     <img
-                                        className='w-full rounded-lg'
-                                        alt="Tailwind CSS Navbar component"
-                                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                        referrerPolicy='no-referrer'
+                                    className='w-full rounded-lg'
+                                    alt={user?.displayName}
+                                    src={user?.photoURL} />
                                 </div>
                             }
 
@@ -48,7 +64,9 @@ const Navbar = () => {
 
                             {links}
                             <li>
-                                <Link to={'/login'}>Login</Link>
+                                {
+                                    user?.email ? <Link to={'/login'}>Log Out</Link> : <Link to={'/login'}>Login</Link>
+                                }
                             </li>
                         </ul>
                     </div>

@@ -10,7 +10,7 @@ import useAuth from '../../context/useAuth';
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
 
-    const { createUser, setUser, googleSignIn } = useAuth();
+    const { createUser, googleSignIn } = useAuth();
 
 
 
@@ -29,7 +29,7 @@ const Register = () => {
 
         createUser(email, password)
             .then(result => {
-                setUser(result.user)
+                console.log(result.user);
             })
             .catch(err => {
                 console.log(err);
@@ -40,7 +40,7 @@ const Register = () => {
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
-                setUser(result.user)
+               
                 console.log(result.user);
             })
             .catch(err =>{

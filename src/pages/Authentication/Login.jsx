@@ -5,14 +5,48 @@ import loginAnnimation from '../../assets/login.json'
 import Navbar from '../../components/Navbar';
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import useAuth from '../../context/useAuth';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
-
+    const { signIn, googleSignIn, setUser } = useAuth();
 
     const handleShowPassword = () => {
         setShowPassword(!showPassword);
+
     }
+
+    const handleLogIn = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        signIn(email, password)
+            .then(result => {
+
+                console.log(result.user);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
+
+    // Google Sign in 
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                // setUser(result.user)
+                console.log(result.user);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
+
+
     return (
         <div className=''>
             {/* navbar */}
@@ -31,7 +65,7 @@ const Login = () => {
 
                     {/* Social Buttons */}
                     <div className="space-y-2">
-                        <button className="btn w-full border border-base-content bg-base-100 hover:bg-base-200">
+                        <button onClick={handleGoogleSignIn} className="btn w-full border border-base-content bg-base-100 hover:bg-base-200">
                             <img className="w-5 mr-2" src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" />
                             Continue with Google
                         </button>
@@ -41,20 +75,19 @@ const Login = () => {
                     <div className="divider">or</div>
 
                     {/* Form */}
-                    <form className="space-y-3">
-
+                    <form onSubmit={handleLogIn} className="space-y-3">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" placeholder="Your Email" className="input input-bordered w-full pr-10" />
+                            <input name='email' type="email" placeholder="Your Email" className="input input-bordered w-full pr-10" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
                             <div className="relative">
-                                <input type={`${showPassword ? 'text' : 'password'}`} placeholder="Your password" className="input input-bordered w-full pr-10" />
+                                <input name='password' type={`${showPassword ? 'text' : 'password'}`} placeholder="Your password" className="input input-bordered w-full pr-10" />
                                 <span onClick={handleShowPassword} className="absolute inset-y-0 right-3 flex items-center cursor-pointer">
                                     {
                                         showPassword ? <FaEyeSlash className='text-xl' /> : <FaEye className='text-xl' />
