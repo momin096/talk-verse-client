@@ -50,7 +50,7 @@ const Login = () => {
     return (
         <div className=''>
             {/* navbar */}
-            <Navbar />
+            {/* <Navbar /> */}
             <div className="min-h-[calc(100vh-30px)] flex flex-row-reverse items-center justify-center bg-base-100 px-4">
                 <div>
                     <Lottie animationData={loginAnnimation} />
