@@ -79,7 +79,7 @@ const SliderContainer = () => {
 
                     {/* Image Section */}
                     <div className=" lg:mb-10 ">
-                        <Lottie className='h-[500px] w-auto ' animationData={slide2} />
+                        <Lottie className=' h-[353px] md:h-[550px] lg:h-[500px] w-auto ' animationData={slide2} />
                     </div>
                 </div>
             </SwiperSlide>
@@ -96,7 +96,6 @@ const SliderContainer = () => {
                         Practice with native speakers, gain confidence, and make friends around the world. Language learning has never been this engaging.
                         </p>
                         <div className="flex justify-center lg:justify-start gap-4">
-
                             <Link to="/find-tutors" className="border border-[#6C63FF] text-[#6C63FF] px-6 py-3 rounded-xl hover:bg-[#6C63FF] hover:text-white transition">
                             Find Tutors
                             </Link>
@@ -104,8 +103,8 @@ const SliderContainer = () => {
                     </div>
 
                     {/* Image Section */}
-                    <div className="lg:mb-10">
-                        <Lottie className='h-[500px] w-auto ' animationData={slide3} />
+                    <div className="lg:mb-10 ">
+                        <Lottie className='md:h-[500px] w-auto  h-[247px]' animationData={slide3} />
                     </div>
                 </div>
             </SwiperSlide>
