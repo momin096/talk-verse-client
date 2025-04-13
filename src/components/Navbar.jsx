@@ -26,11 +26,11 @@ const Navbar = ({ theme, setTheme }) => {
 
 
     const links = <>
-        <li><NavLink className='px-5 py-2 rounded-xl text-gray-900 ' to={'/'}>Home</NavLink></li>
-        <li><NavLink className='px-5 py-2 rounded-xl text-gray-900 ' to={'/find-tutors'}>Find tutors</NavLink></li>
-        <li><NavLink className='px-5 py-2 rounded-xl text-gray-900 ' to={'/add-tutorials'}>Add Tutorials</NavLink></li>
-        <li><NavLink className='px-5 py-2 rounded-xl text-gray-900 ' to={'/my-tutorials'}>My Tutorials</NavLink></li>
-        <li><NavLink className='px-5 py-2 rounded-xl text-gray-900 ' to={'/my-booked-tutorials'}>My booked tutors</NavLink></li>
+        <li><NavLink className='px-5 py-2 rounded-xl text-purple-950 ' to={'/'}>Home</NavLink></li>
+        <li><NavLink className='px-5 py-2 rounded-xl text-purple-950 ' to={'/find-tutors'}>Find tutors</NavLink></li>
+        <li><NavLink className='px-5 py-2 rounded-xl text-purple-950 ' to={'/add-tutorials'}>Add Tutorials</NavLink></li>
+        <li><NavLink className='px-5 py-2 rounded-xl text-purple-950 ' to={'/my-tutorials'}>My Tutorials</NavLink></li>
+        <li><NavLink className='px-5 py-2 rounded-xl text-purple-950 ' to={'/my-booked-tutorials'}>My booked tutors</NavLink></li>
     </>
     return (
         <div className='md:px-10 py-1 bg-[#B7B1F2] '>
