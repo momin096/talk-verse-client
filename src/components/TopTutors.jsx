@@ -9,13 +9,13 @@ const topTutors = [
 ];
 const TopTutors = () => {
     return (
-        <section className="container mx-auto my-20">
+        <section className="container mx-auto my-20 ">
             <h2 className="text-4xl font-bold mb-7 text-center ">Top Rated Tutors</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {topTutors.map((tutor, i) => (
                     <div
                         key={i}
-                        className="p-6 bg-white rounded-xl shadow hover:shadow-lg hover:border hover:border-blue-900 transition duration-300 flex justify-between items-center hover:scale-105"
+                        className="p-6 bg-white rounded-xl shadow hover:shadow-lg border border-white hover:border-blue-900 transition duration-300 flex justify-between items-center hover:scale-105 "
                     >
 
                         <div>

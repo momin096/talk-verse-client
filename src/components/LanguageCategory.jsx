@@ -6,7 +6,7 @@ const categories = [
     { title: "Spanish tutors", teachers: "10,054", icon: "🎶" },
     { title: "French tutors", teachers: "3,712", icon: "🗼" },
     { title: "German tutors", teachers: "1,517", icon: "🏛️" },
-    { title: "Italian tutors", teachers: "2,542", icon: "🍝" },
+    { title: "Korean tutors", teachers: "2,542", icon: "🍝" },
     { title: "Chinese tutors", teachers: "5,253", icon: "🏯" },
     { title: "Arabic tutors", teachers: "3,651", icon: "🕌" },
     { title: "Japanese tutors", teachers: "2,902", icon: "⛩️" },

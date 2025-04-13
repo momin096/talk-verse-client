@@ -10,7 +10,8 @@
 
 
 .active {
-  background-color: #968de7;
+  background-color: #968de7b0;
+  color: white;
 
 }
 

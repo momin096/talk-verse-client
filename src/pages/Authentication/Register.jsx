@@ -2,16 +2,17 @@ import { useState } from 'react';
 import registerAnnimation from '../../assets/register.json'
 import Navbar from '../../components/Navbar';
 import Lottie from "lottie-react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useAuth from '../../context/useAuth';
+
 
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
 
-    const { createUser, googleSignIn } = useAuth();
-
+    const { createUser, googleSignIn, UpdateUserInfo } = useAuth();
+    const navigate = useNavigate();
 
 
     const handleShowPassword = () => {
@@ -27,9 +28,16 @@ const Register = () => {
         const photo = form.photo.value;
         const password = form.password.value;
 
+        const updatedDoc = { displayName: name, photoURL: photo }
+
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
+                UpdateUserInfo(updatedDoc)
+                    .then(() => {
+                        console.log('account created Successfully');
+                        navigate('/')
+                    })
             })
             .catch(err => {
                 console.log(err);
@@ -40,10 +48,10 @@ const Register = () => {
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
-               
+
                 console.log(result.user);
             })
-            .catch(err =>{
+            .catch(err => {
                 console.log(err);
             })
     }

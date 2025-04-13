@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import useAuth from "../context/useAuth";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const MainLayout = () => {
     const { loading } = useAuth();
@@ -18,6 +19,8 @@ const MainLayout = () => {
             <Navbar theme={theme} setTheme={setTheme} />
 
             <Outlet />
+
+            <Footer />
         </div>
     )
 };
