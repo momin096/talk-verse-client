@@ -53,7 +53,7 @@ const Register = () => {
     return (
         <div className=''>
             {/* navbar */}
-            <Navbar />
+            {/* <Navbar /> */}
             <div className="min-h-[calc(100vh-30px)] flex  items-center justify-center bg-base-100 px-4">
                 <div className='w-[700px] pr-32'>
                     <Lottie animationData={registerAnnimation} />

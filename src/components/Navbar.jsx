@@ -49,7 +49,7 @@ const Navbar = ({ theme, setTheme }) => {
                         {
                             user?.email ? <button onClick={handleLogOut} className=' hidden text-white lg:flex hover:bg-[#968de7] px-5 py-2 border border-[#968de7] items-center gap-2'>Log Out <LuLogOut className='text-2xl' /></button> : <Link to={'/login'} className=' hidden text-white lg:flex hover:bg-[#968de7] px-5 py-2 border border-[#968de7] items-center gap-2'>Login <CiLogin className='text-2xl' /></Link>
                         }
-                        {/* <Link to={'/login'} className=' hidden text-white lg:flex hover:bg-[#968de7] px-5 py-2 border border-[#968de7] items-center gap-2'>Login <CiLogin className='text-2xl' /></Link> */}
+                       
                     </div>
                     <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" >
@@ -79,7 +79,7 @@ const Navbar = ({ theme, setTheme }) => {
                     </div>
                 </div>
                 {/* THEME CONTROLLER */}
-                <label className="swap swap-rotate ">
+                <label className="swap swap-rotate ml-5">
 
                     {/* this hidden checkbox controls the state */}
                     <input onChange={handleTheme} checked={theme === 'night'} type="checkbox" className="theme-controller" />

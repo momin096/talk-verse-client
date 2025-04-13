@@ -1,11 +1,12 @@
-import { useState } from "react";
-import Navbar from "../components/Navbar";
+import SliderContainer from "../components/SliderContainer";
+
+
 
 const Home = () => {
-    
+
     return (
         <div>
-            <h2>HOme</h2>
+            <SliderContainer />
         </div>
     );
 };
