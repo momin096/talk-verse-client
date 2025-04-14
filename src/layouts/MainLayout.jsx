@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
-import useAuth from "../context/useAuth";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import useAuth from "../hooks/useAuth";
 
 const MainLayout = () => {
     const { loading } = useAuth();

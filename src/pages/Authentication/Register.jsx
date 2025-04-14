@@ -4,7 +4,7 @@ import Navbar from '../../components/Navbar';
 import Lottie from "lottie-react";
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import useAuth from '../../context/useAuth';
+import useAuth from '../../hooks/useAuth';
 
 
 

@@ -1,8 +1,8 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/logo.png'
 import { CiLogin } from "react-icons/ci";
-import useAuth from '../context/useAuth';
 import { LuLogOut } from "react-icons/lu";
+import useAuth from '../hooks/useAuth';
 
 
 const Navbar = ({ theme, setTheme }) => {
@@ -27,11 +27,11 @@ const Navbar = ({ theme, setTheme }) => {
 
 
     const links = <>
-        <li><NavLink className='px-5 py-2 rounded-sm text-gray-800 ' to={'/'}>Home</NavLink></li>
-        <li><NavLink className='px-5 py-2 rounded-sm text-gray-800 ' to={'/find-tutors'}>Find tutors</NavLink></li>
-        <li><NavLink className='px-5 py-2 rounded-sm text-gray-800 ' to={'/add-tutorials'}>Add Tutorials</NavLink></li>
-        <li><NavLink className='px-5 py-2 rounded-sm text-gray-800 ' to={'/my-tutorials'}>My Tutorials</NavLink></li>
-        <li><NavLink className='px-5 py-2 rounded-sm text-gray-800 ' to={'/my-booked-tutorials'}>My booked tutors</NavLink></li>
+        <li><NavLink className='px-5 py-2 rounded-sm text-gray-800 hover:text-white duration-200 ' to={'/'}>Home</NavLink></li>
+        <li><NavLink className='px-5 py-2 rounded-sm text-gray-800 hover:text-white duration-200 ' to={'/find-tutors'}>Find tutors</NavLink></li>
+        <li><NavLink className='px-5 py-2 rounded-sm text-gray-800 hover:text-white duration-200 ' to={'/add-tutorials'}>Add Tutorials</NavLink></li>
+        <li><NavLink className='px-5 py-2 rounded-sm text-gray-800 hover:text-white duration-200 ' to={'/my-tutorials'}>My Tutorials</NavLink></li>
+        <li><NavLink className='px-5 py-2 rounded-sm text-gray-800 hover:text-white duration-200 ' to={'/my-booked-tutorials'}>My booked tutors</NavLink></li>
     </>
     return (
         <div className='md:px-10 py-1 bg-[#B7B1F2] '>
@@ -50,7 +50,7 @@ const Navbar = ({ theme, setTheme }) => {
                         {
                             user?.email ? <button onClick={handleLogOut} className=' hidden text-white lg:flex hover:bg-[#968de7] px-5 py-2 border border-[#968de7] items-center gap-2'>Log Out <LuLogOut className='text-2xl' /></button> : <Link to={'/login'} className=' hidden text-white lg:flex hover:bg-[#968de7] px-5 py-2 border border-[#968de7] items-center gap-2'>Login <CiLogin className='text-2xl' /></Link>
                         }
-                       
+
                     </div>
                     <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" >
@@ -58,7 +58,7 @@ const Navbar = ({ theme, setTheme }) => {
                                 user && <div className="w-12 h-12 ml-5">
                                     <img
                                         referrerPolicy='no-referrer'
-                                        className='w-full rounded-lg'
+                                        className='w-full rounded-lg object-cover h-full'
                                         alt={user?.displayName}
                                         src={user?.photoURL} />
                                 </div>

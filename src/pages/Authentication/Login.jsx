@@ -2,14 +2,13 @@ import { Link } from 'react-router-dom';
 import Lottie from "lottie-react";
 
 import loginAnnimation from '../../assets/login.json'
-import Navbar from '../../components/Navbar';
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import useAuth from '../../context/useAuth';
+import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const { signIn, googleSignIn, setUser } = useAuth();
+    const { signIn, googleSignIn } = useAuth();
 
     const handleShowPassword = () => {
         setShowPassword(!showPassword);

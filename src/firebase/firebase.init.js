@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDPxda2oOBvnvbAN_uE3cTp-vaeDqsps24",
-  authDomain: "talk-verse-117af.firebaseapp.com",
-  projectId: "talk-verse-117af",
-  storageBucket: "talk-verse-117af.firebasestorage.app",
-  messagingSenderId: "886166068226",
-  appId: "1:886166068226:web:749e040c2a2ba637b29b1b"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId:  import.meta.env.VITE_projectId,
+  storageBucket:  import.meta.env.VITE_storageBucket,
+  messagingSenderId:  import.meta.env.VITE_messagingSenderId,
+  appId:  import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

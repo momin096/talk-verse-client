@@ -1,7 +1,33 @@
-import useAuth from "../context/useAuth";
+import useAuth from "../hooks/useAuth";
+import { axiosSecure } from "../hooks/useAxiosSecure";
+
 
 const AddTutorials = () => {
     const { user } = useAuth();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const photo = form.photo.value;
+        const price = form.price.value;
+        const language = form.language.value;
+        const review = form.review.value;
+        const description = form.description.value
+
+        const formData = { name, email, photo, language, price, review, description };
+
+        try {
+            // Make a post request
+            const { data } = await axiosSecure.post('add-tutorials', formData, { withCredentials: true });
+            console.log(data);
+        } catch (err) {
+            console.log(err);
+        }
+
+    }
 
     return (
         <section className="max-w-4xl mx-auto px-4 py-12">
@@ -10,7 +36,7 @@ const AddTutorials = () => {
                     Add a New Tutorial
                 </h2>
 
-                <form className="">
+                <form onSubmit={handleSubmit}>
                     <div className=" grid grid-cols-1 lg:grid-cols-2 gap-5">
                         {/* Name  */}
                         <div>
@@ -18,6 +44,7 @@ const AddTutorials = () => {
                                 Your Name
                             </label>
                             <input
+                                name="name"
                                 type="text"
                                 value={user?.displayName}
                                 disabled
@@ -31,6 +58,7 @@ const AddTutorials = () => {
                                 Email
                             </label>
                             <input
+                                name="email"
                                 type="email"
                                 value={user?.email}
                                 disabled
@@ -44,6 +72,7 @@ const AddTutorials = () => {
                                 Tutorial Image URL
                             </label>
                             <input
+                                name="photo"
                                 type="url"
                                 placeholder="https://example.com/image.jpg"
                                 className="w-full border border-gray-300 rounded-xl px-4 py-2"
@@ -56,6 +85,7 @@ const AddTutorials = () => {
                                 Language
                             </label>
                             <select
+                                name="language"
                                 className="w-full border border-gray-300 rounded-xl px-4 py-2 bg-white"
                                 defaultValue=""
                             >
@@ -79,6 +109,7 @@ const AddTutorials = () => {
                                 Price (USD)
                             </label>
                             <input
+                                name="price"
                                 type="number"
                                 placeholder="e.g. 25"
                                 className="w-full border border-gray-300 rounded-xl px-4 py-2"
@@ -91,6 +122,7 @@ const AddTutorials = () => {
                                 Review
                             </label>
                             <input
+                                name="review"
                                 type="number"
                                 value="0"
                                 disabled
@@ -103,6 +135,7 @@ const AddTutorials = () => {
                                 Description
                             </label>
                             <textarea
+                                name="description"
                                 rows="5"
                                 placeholder="Brief description of the tutorial..."
                                 className="w-full border border-gray-300 rounded-xl px-4 py-2"
