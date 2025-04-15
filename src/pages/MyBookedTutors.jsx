@@ -22,14 +22,16 @@ const MyBookedTutors = () => {
 
     const handleReview = async (tutorId) => {
         try {
-            const res = await axiosSecure.patch(`/update-review/${tutorId}`);
-            if (res.data.modifiedCount > 0) {
-                alert('Thanks for your review!');
-            }
+            const {data} = await axiosSecure.patch(`/update-review/${tutorId}`);
+            console.log(data);
+            // if (data.modifiedCount > 0) {
+            //     console.log(data);
+            // }
         } catch (error) {
             console.error('Review update failed:', error);
         }
     };
+
 
     return (
         <div className="max-w-6xl mx-auto px-4 py-8">
@@ -51,14 +53,14 @@ const MyBookedTutors = () => {
                                 <p className="text-sm text-gray-600">Language: {item.language}</p>
                                 <p className="text-sm text-gray-600 mb-2">Price: ${item.price}</p>
 
-                               <div>
-                               <button
-                                    onClick={() => handleReview(item.tutorId)}
-                                    className="bg-violet-400 hover:bg-violet-600 text-white px-4 py-1 rounded "
-                                >
-                                    Review
-                                </button>
-                               </div>
+                                <div>
+                                    <button
+                                        onClick={() => handleReview(item.tutorId)}
+                                        className="bg-violet-400 hover:bg-violet-600 text-white px-4 py-1 rounded "
+                                    >
+                                        Review
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     ))}

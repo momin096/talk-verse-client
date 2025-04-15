@@ -12,15 +12,14 @@ const AddTutorials = () => {
         const name = form.name.value;
         const email = form.email.value;
         const photo = form.photo.value;
-        const price = form.price.value;
+        const price = parseFloat(form.price.value);
         const language = form.language.value;
-        const review = form.review.value;
         const description = form.description.value
 
-        const formData = { name, email, photo, language, price, review, description };
+        const formData = { name, email, photo, language, price, review: 0, description };
 
         try {
-            // Make a post request
+
             const { data } = await axiosSecure.post('/add-tutorials', formData, { withCredentials: true });
             console.log(data);
         } catch (err) {
