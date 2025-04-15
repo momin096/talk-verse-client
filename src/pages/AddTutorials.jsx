@@ -21,7 +21,7 @@ const AddTutorials = () => {
 
         try {
             // Make a post request
-            const { data } = await axiosSecure.post('add-tutorials', formData, { withCredentials: true });
+            const { data } = await axiosSecure.post('/add-tutorials', formData, { withCredentials: true });
             console.log(data);
         } catch (err) {
             console.log(err);

@@ -1,9 +1,10 @@
 import { CiHeart } from "react-icons/ci";
+import { Link } from "react-router-dom";
 
 
 const TutorCard = ({ tutor }) => {
 
-    const { name, photo, language, price, review, description } = tutor || {};
+    const { _id, name, photo, language, price, review, description } = tutor || {};
 
     return (
         <div className="border border-gray-200  rounded-lg p-4 flex gap-4 justify-between items-start shadow-sm max-w-3xl">
@@ -20,11 +21,11 @@ const TutorCard = ({ tutor }) => {
                 <p className="text-sm text-gray-700 mt-2">
                     {description.substring(0, 100)}...
                 </p>
-                <p>Reviews: {review}</p>
+                <p className="mb-5">Reviews: {review}</p>
 
-                <button className="mt-3 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition">
-                    Book trial lesson
-                </button>
+                <Link to={`/tutor/${_id}`} className=" border-[#6C63FF] bg-[#928cff] hover:bg-[#7c75ff] text-white px-4 py-2 rounded-md  cursor-pointer transition">
+                    Details
+                </Link>
             </div>
 
             <div className="">
