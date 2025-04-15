@@ -33,6 +33,7 @@ const TutorDetails = () => {
             photo,
             language,
             price,
+            name,
             tutorEmail: email,
             userEmail: user.email,
         }
@@ -50,7 +51,7 @@ const TutorDetails = () => {
     return (
         <div className='min-h-screen  mt-20'>
             <div className="max-w-5xl mx-auto mt-10 p-6 bg-white rounded-2xl  grid grid-cols-1 md:grid-cols-3 gap-6 border border-gray-200">
-       
+
                 <div className="col-span-1 flex justify-center">
                     <img
                         src={photo}
@@ -76,7 +77,8 @@ const TutorDetails = () => {
 
                             <button
                                 onClick={handleBook}
-                                className="bg-[#928cff] hover:bg-[#7c75ff] cursor-pointer text-white font-semibold px-6 py-2 rounded-lg transition">
+                                disabled={email === user?.email}
+                                className={`disabled:cursor-not-allowed disabled:bg-gray-300 bg-[#928cff] hover:bg-[#7c75ff] cursor-pointer text-white font-semibold px-6 py-2 rounded-lg transition `}>
                                 Book
                             </button>
                         </div>

@@ -37,9 +37,9 @@ const Navbar = ({ theme, setTheme }) => {
         <div className='md:px-10 py-1 bg-[#B7B1F2] '>
             <div className="navbar  items-center">
                 <div className="flex-1 flex items-center gap-10">
-                    <div className="w-44">
+                    <Link to={'/'} className="w-44 ">
                         <img className="w-full" src={logo} alt="" />
-                    </div>
+                    </Link>
                     <ul className=' items-center  hidden lg:flex'>
                         {links}
                     </ul>
