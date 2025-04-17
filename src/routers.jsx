@@ -9,6 +9,7 @@ import Login from "./pages/Authentication/Login";
 import Register from "./pages/Authentication/Register";
 import TutorDetails from "./pages/TutorDetails";
 import EditTutorial from "./pages/EditTutorial";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -25,23 +26,33 @@ const router = createBrowserRouter([
             },
             {
                 path: '/tutor/:id',
-                element: <TutorDetails />,
+                element: <PrivateRoute >
+                    <TutorDetails />
+                </PrivateRoute>,
             },
             {
                 path: '/add-tutorials',
-                element: <AddTutorials />
+                element: <PrivateRoute>
+                    <AddTutorials />
+                </PrivateRoute>
             },
             {
                 path: '/my-tutorials',
-                element: <MyTutorials />
+                element: <PrivateRoute>
+                    <MyTutorials />
+                </PrivateRoute>
             },
             {
                 path: '/edit-tutorial/:id',
-                element: <EditTutorial />
+                element: <PrivateRoute>
+                    <EditTutorial />
+                </PrivateRoute>
             },
             {
                 path: '/my-booked-tutorials',
-                element: <MyBookedTutors />
+                element: <PrivateRoute>
+                    <MyBookedTutors />
+                </PrivateRoute>
             },
             {
                 path: '/login',

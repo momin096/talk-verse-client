@@ -27,14 +27,14 @@ const Navbar = ({ theme, setTheme }) => {
 
 
     const links = <>
-        <li><NavLink className='px-5 py-2 rounded-sm text-gray-800 hover:text-white duration-200 ' to={'/'}>Home</NavLink></li>
-        <li><NavLink className='px-5 py-2 rounded-sm text-gray-800 hover:text-white duration-200 ' to={'/find-tutors'}>Find tutors</NavLink></li>
-        <li><NavLink className='px-5 py-2 rounded-sm text-gray-800 hover:text-white duration-200 ' to={'/add-tutorials'}>Add Tutorials</NavLink></li>
-        <li><NavLink className='px-5 py-2 rounded-sm text-gray-800 hover:text-white duration-200 ' to={'/my-tutorials'}>My Tutorials</NavLink></li>
-        <li><NavLink className='px-5 py-2 rounded-sm text-gray-800 hover:text-white duration-200 ' to={'/my-booked-tutorials'}>My booked tutors</NavLink></li>
+        <li><NavLink className='px-5 py-2 rounded-sm text-navbar hover:text-white duration-200 ' to={'/'}>Home</NavLink></li>
+        <li><NavLink className='px-5 py-2 rounded-sm text-navbar hover:text-white duration-200 ' to={'/find-tutors'}>Find tutors</NavLink></li>
+        <li><NavLink className='px-5 py-2 rounded-sm text-navbar hover:text-white duration-200 ' to={'/add-tutorials'}>Add Tutorials</NavLink></li>
+        <li><NavLink className='px-5 py-2 rounded-sm text-navbar hover:text-white duration-200 ' to={'/my-tutorials'}>My Tutorials</NavLink></li>
+        <li><NavLink className='px-5 py-2 rounded-sm text-navbar hover:text-white duration-200 ' to={'/my-booked-tutorials'}>My booked tutors</NavLink></li>
     </>
     return (
-        <div className='md:px-10 py-1 bg-[#B7B1F2] '>
+        <div className='md:px-10 py-1 bg-navbar'>
             <div className="navbar  items-center">
                 <div className="flex-1 flex items-center gap-10">
                     <Link to={'/'} className="w-44 ">
@@ -48,7 +48,7 @@ const Navbar = ({ theme, setTheme }) => {
                     <div >
 
                         {
-                            user?.email ? <button onClick={handleLogOut} className=' hidden text-white lg:flex hover:bg-[#968de7] px-5 py-2 border border-[#968de7] items-center gap-2'>Log Out <LuLogOut className='text-2xl' /></button> : <Link to={'/login'} className=' hidden text-white lg:flex hover:bg-[#968de7] px-5 py-2 border border-[#968de7] items-center gap-2'>Login <CiLogin className='text-2xl' /></Link>
+                            user?.email ? <button onClick={handleLogOut} className=' hidden  text-white lg:flex hover:bg-[#968de7] px-5 py-2 border border-[#968de7] items-center gap-2 '>Log Out <LuLogOut className='text-2xl' /></button> : <Link to={'/login'} className=' hidden text-white lg:flex hover:bg-[#968de7] px-5 py-2 border border-[#968de7] items-center gap-2'>Login <CiLogin className='text-2xl' /></Link>
                         }
 
                     </div>

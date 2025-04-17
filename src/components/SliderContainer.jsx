@@ -33,13 +33,13 @@ const SliderContainer = () => {
 
             {/* SLide 1 */}
             <SwiperSlide >
-                <div className="flex flex-col-reverse lg:flex-row items-center justify-between lg:px-12 lg:py-16 py-4 px-2 bg-gradient-to-r from-[#B7B1F2] to-[#E7E4FB]">
+                <div className="flex flex-col-reverse lg:flex-row items-center justify-between lg:px-12 lg:py-16 py-4 px-2 bg-gradient-to-r from-[slider-start] to-[slider-end]">
                     {/* Text Section */}
                     <div className="lg:w-1/2 text-center lg:text-left space-y-6">
-                        <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
+                        <h1 className="text-4xl md:text-5xl font-bold text-base-100">
                             Learn Languages from Real People, Anytime.
                         </h1>
-                        <p className="text-lg text-gray-700">
+                        <p className="text-lg text-base-100">
                             Connect with experienced tutors from around the world. Book personalized 1-on-1 lessons that fit your schedule.
                         </p>
                         <div className="flex justify-center lg:justify-start gap-4">
@@ -59,13 +59,13 @@ const SliderContainer = () => {
 
             {/* Slide 2 */}
             <SwiperSlide >
-                <div className="flex flex-col lg:flex-row-reverse items-center justify-between lg:px-12 lg:py-16 py-4 px-2 bg-gradient-to-r to-[#B7B1F2] from-[#E7E4FB]">
+                <div className="flex flex-col lg:flex-row-reverse items-center justify-between lg:px-12 lg:py-16 py-4 px-2 bg-gradient-to-r from-slider-end to-slider-start">
                     {/* Text Section */}
                     <div className="lg:w-1/2 text-center lg:text-left space-y-6">
-                        <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
+                        <h1 className="text-4xl md:text-5xl font-bold text-base-100">
                         Why TalkVerse?
                         </h1>
-                        <p className="text-lg text-gray-700">
+                        <p className="text-lg text-base-100">
                         Whether you're a beginner or brushing up your skills, our tutors customize lessons to fit your learning style and goals.
                         </p>
                         <div className="flex justify-center lg:justify-start gap-4">
@@ -86,13 +86,13 @@ const SliderContainer = () => {
 
             {/*Slide 3  */}
             <SwiperSlide >
-                <div className="flex flex-col-reverse lg:flex-row items-center justify-between lg:px-12 lg:py-16 py-4 px-2 bg-gradient-to-r from-[#B7B1F2] to-[#E7E4FB]">
+                <div className="flex flex-col-reverse lg:flex-row items-center justify-between lg:px-12 lg:py-16 py-4 px-2 bg-gradient-to-r from-slider-start to-slider-end">
                     {/* Text Section */}
-                    <div className="lg:w-1/2 text-center lg:text-left space-y-6">
-                        <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
+                    <div className="lg:w-1/2 text-center lg:text-left space-y-6 ">
+                        <h1 className="text-4xl md:text-5xl font-bold text-base-100">
                         Join a Global Language Learning Community
                         </h1>
-                        <p className="text-lg text-gray-700">
+                        <p className="text-lg text-base-100">
                         Practice with native speakers, gain confidence, and make friends around the world. Language learning has never been this engaging.
                         </p>
                         <div className="flex justify-center lg:justify-start gap-4">

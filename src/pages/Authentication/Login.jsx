@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Lottie from "lottie-react";
 
 import loginAnnimation from '../../assets/login.json'
@@ -9,6 +9,9 @@ import useAuth from '../../hooks/useAuth';
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const { signIn, googleSignIn } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state || '/';
 
     const handleShowPassword = () => {
         setShowPassword(!showPassword);
@@ -25,6 +28,7 @@ const Login = () => {
             .then(result => {
 
                 console.log(result.user);
+                navigate(from)
             })
             .catch(err => {
                 console.log(err);
@@ -36,7 +40,7 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
-                // setUser(result.user)
+                navigate(from)
                 console.log(result.user);
             })
             .catch(err => {
@@ -48,7 +52,6 @@ const Login = () => {
 
     return (
         <div className=''>
-            {/* navbar */}
             {/* <Navbar /> */}
             <div className="min-h-[calc(100vh-30px)] flex flex-row-reverse items-center justify-center bg-base-100 px-4">
                 <div>
@@ -62,7 +65,6 @@ const Login = () => {
                         </Link>
                     </p>
 
-                    {/* Social Buttons */}
                     <div className="space-y-2">
                         <button onClick={handleGoogleSignIn} className="btn w-full border border-base-content bg-base-100 hover:bg-base-200">
                             <img className="w-5 mr-2" src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" />
@@ -73,7 +75,6 @@ const Login = () => {
 
                     <div className="divider">or</div>
 
-                    {/* Form */}
                     <form onSubmit={handleLogIn} className="space-y-3">
                         <div className="form-control">
                             <label className="label">

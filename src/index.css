@@ -7,6 +7,48 @@
 }
 
 
+[data-theme="light"] {
+  .text-base-100 {
+    color: black;
+  }
+
+  .bg-navbar {
+    background-color: #B7B1F2;
+  }
+
+  .slider-start {
+    background-color: #B7B1F2;
+    background-color: ;
+  }
+
+  .slider-end {
+    background-color: #E7E4FB;
+  }
+
+}
+
+[data-theme="night"] {
+  .text-base-100 {
+    color: white;
+  }
+
+  .bg-navbar {
+    background-color: #2C254D;
+  }
+
+  .text-navbar {
+    color: white;
+  }
+
+  .slider-start {
+    background-color: #50438d;
+  }
+
+  .slider-end {
+    background-color: #1E1A35 ;
+  }
+}
+
 
 
 .active {

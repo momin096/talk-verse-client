@@ -24,9 +24,9 @@ const MyBookedTutors = () => {
         try {
             const {data} = await axiosSecure.patch(`/update-review/${tutorId}`);
             console.log(data);
-            // if (data.modifiedCount > 0) {
-            //     console.log(data);
-            // }
+            if (data.modifiedCount > 0) {
+                console.log(data);
+            }
         } catch (error) {
             console.error('Review update failed:', error);
         }

@@ -1,17 +1,15 @@
 import { useEffect, useState } from 'react';
-import { axiosSecure } from '../hooks/useAxiosSecure';
 import { Link } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
-import { AxiosHeaders } from 'axios';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const MyTutorials = () => {
     const [tutorials, setTutorials] = useState([]);
     const { user } = useAuth();
+    const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
         if (!user?.email) return;
-
-
         fetchTutorials();
     }, [user?.email]);
 
