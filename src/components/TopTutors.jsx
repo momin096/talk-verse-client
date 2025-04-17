@@ -10,7 +10,7 @@ const topTutors = [
 const TopTutors = () => {
     return (
         <section className="container mx-auto my-20 ">
-            <h2 className="text-4xl font-bold mb-7 text-center ">Top Rated Tutors</h2>
+            <h2 className="text-4xl font-bold mb-7 text-center text-base-100">Top Rated Tutors</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {topTutors.map((tutor, i) => (
                     <div
@@ -19,7 +19,7 @@ const TopTutors = () => {
                     >
 
                         <div>
-                            <h3 className="text-lg font-semibold">{tutor.name}</h3>
+                            <h3 className="text-lg font-semibold text-gray-800">{tutor.name}</h3>
                             <p className="text-gray-600">{tutor.language}</p>
                             <p className="flex items-center text-yellow-500 mt-2">
                                 <GoStarFill className="w-4 h-4 mr-1" />

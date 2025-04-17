@@ -26,25 +26,27 @@ const LanguageCategory = () => {
 
 
     return (
-        <div className="container mx-auto">
-            <h2 className="text-4xl text-center font-bold mb-6">Explore Languages</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 p-6 ">
-                {categories.map((cat, index) => (
-                    <div
-                        key={index}
-                        onClick={() => handleCardClick(cat.title)}
-                        className="flex items-center justify-between p-6 bg-white  rounded-sm border border-gray-300 cursor-pointer hover:border-purple-900 hover:bg-purple-50 transition duration-300"
-                    >
-                        <div className="flex items-center gap-4">
-                            <span className="text-5xl">{cat.icon}</span>
-                            <div>
-                                <h2 className="text-2xl font-semibold mb-2">{cat.title} tutors</h2>
-                                <p className="text-sm text-gray-500">{cat.teachers} teachers</p>
+        <div className="bg-base">
+            <div className="container mx-auto">
+                <h2 className="text-4xl text-center font-bold mb-6 text-base-100">Explore Languages</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 p-6 ">
+                    {categories.map((cat, index) => (
+                        <div
+                            key={index}
+                            onClick={() => handleCardClick(cat.title)}
+                            className="flex items-center justify-between p-6 bg-white  rounded-sm border border-gray-300 cursor-pointer hover:border-purple-900 hover:bg-purple-50 transition duration-300"
+                        >
+                            <div className="flex items-center gap-4">
+                                <span className="text-5xl">{cat.icon}</span>
+                                <div>
+                                    <h2 className="text-2xl font-semibold mb-2 text-gray-900">{cat.title} tutors</h2>
+                                    <p className="text-sm text-gray-800">{cat.teachers} teachers</p>
+                                </div>
                             </div>
+                            <IoIosArrowForward className="text-gray-600 text-3xl " />
                         </div>
-                        <IoIosArrowForward className="text-gray-600 text-3xl " />
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
     );

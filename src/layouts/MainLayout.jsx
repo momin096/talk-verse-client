@@ -13,7 +13,7 @@ const MainLayout = () => {
 
 
     return (
-        <div>
+        <div className="bg-base">
             <Navbar theme={theme} setTheme={setTheme} />
 
             <Outlet />

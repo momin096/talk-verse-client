@@ -15,10 +15,10 @@ const TutorCard = ({ tutor }) => {
                 className="w-32 h-32 object-cover rounded-md"
             />
 
-            <div className="flex-1">
+            <div className="flex-1 text-base-100">
                 <h2 className="text-xl font-semibold">{name}</h2>
-                <p className="text-sm text-gray-600 mt-1">Language: <span className="font-bold">{language}</span></p>
-                <p className="text-sm text-gray-700 mt-2">
+                <p className="text-sm  mt-1">Language: <span className="font-bold">{language}</span></p>
+                <p className="text-sm  mt-2">
                     {description.substring(0, 100)}...
                 </p>
                 <p className="mb-5">Reviews: {review}</p>

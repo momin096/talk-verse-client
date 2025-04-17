@@ -33,7 +33,7 @@ const SliderContainer = () => {
 
             {/* SLide 1 */}
             <SwiperSlide >
-                <div className="flex flex-col-reverse lg:flex-row items-center justify-between lg:px-12 lg:py-16 py-4 px-2 bg-gradient-to-r from-[slider-start] to-[slider-end]">
+                <div className="flex flex-col-reverse lg:flex-row items-center justify-between lg:px-12 lg:py-16 py-4 px-2 slider-bg">
                     {/* Text Section */}
                     <div className="lg:w-1/2 text-center lg:text-left space-y-6">
                         <h1 className="text-4xl md:text-5xl font-bold text-base-100">
@@ -59,7 +59,7 @@ const SliderContainer = () => {
 
             {/* Slide 2 */}
             <SwiperSlide >
-                <div className="flex flex-col lg:flex-row-reverse items-center justify-between lg:px-12 lg:py-16 py-4 px-2 bg-gradient-to-r from-slider-end to-slider-start">
+                <div className="flex flex-col lg:flex-row-reverse items-center justify-between lg:px-12 lg:py-16 py-4 px-2 slider-bg-reverse">
                     {/* Text Section */}
                     <div className="lg:w-1/2 text-center lg:text-left space-y-6">
                         <h1 className="text-4xl md:text-5xl font-bold text-base-100">
@@ -86,7 +86,7 @@ const SliderContainer = () => {
 
             {/*Slide 3  */}
             <SwiperSlide >
-                <div className="flex flex-col-reverse lg:flex-row items-center justify-between lg:px-12 lg:py-16 py-4 px-2 bg-gradient-to-r from-slider-start to-slider-end">
+                <div className="flex flex-col-reverse lg:flex-row items-center justify-between lg:px-12 lg:py-16 py-4 px-2 slider-bg">
                     {/* Text Section */}
                     <div className="lg:w-1/2 text-center lg:text-left space-y-6 ">
                         <h1 className="text-4xl md:text-5xl font-bold text-base-100">

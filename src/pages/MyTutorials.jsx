@@ -49,7 +49,7 @@ const MyTutorials = () => {
             </div>
 
             {tutorials.length === 0 ? (
-                <p className="text-gray-500">You haven’t added any tutorials yet.</p>
+                <p className="text-base-100">You haven’t added any tutorials yet.</p>
             ) : (
                 <div className="grid md:grid-cols-2 gap-6">
                     {tutorials.map((tutorial) => (
@@ -65,12 +65,12 @@ const MyTutorials = () => {
 
                             <div className="flex-1 flex flex-col justify-between">
                                 <div>
-                                    <h3 className="text-xl font-semibold text-gray-800">{tutorial.title}</h3>
-                                    <p className="text-gray-600 mt-2">
+                                    <h3 className="text-xl font-semibold ">{tutorial.title}</h3>
+                                    <p className=" mt-2">
                                         {tutorial.description?.slice(0, 100)}...
                                     </p>
-                                    <p className="text-sm text-gray-500 mt-1">Language: {tutorial.language}</p>
-                                    <p className="text-sm text-gray-500">Price: ${tutorial.price}</p>
+                                    <p className="text-sm  mt-1">Language: {tutorial.language}</p>
+                                    <p className="text-sm ">Price: ${tutorial.price}</p>
                                 </div>
 
                                 <div className="flex gap-2 mt-4">

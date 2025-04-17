@@ -37,7 +37,7 @@ const FindTutors = () => {
 
     return (
         <div className="container mx-auto min-h-screen mt-5 p-1">
-            <h2 className="text-5xl font-medium text-center mb-5 text-violet-950">{selectedLanguage ? selectedLanguage + ' Tutors' : "Find Your Tutor"}</h2>
+            <h2 className="text-5xl font-medium text-center mb-5 text-base-100">{selectedLanguage ? selectedLanguage + ' Tutors' : "Find Your Tutor"}</h2>
             <div className={`flex justify-center mb-8 ${selectedLanguage ? 'hidden' : ''}`}>
                 <div className="relative w-full max-w-md">
                     <input
