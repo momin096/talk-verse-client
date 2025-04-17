@@ -10,9 +10,7 @@ const MainLayout = () => {
 
     document.documentElement.setAttribute('data-theme', theme);
 
-    if (loading) {
-        return <loading />
-    }
+
 
     return (
         <div>

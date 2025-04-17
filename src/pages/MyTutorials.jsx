@@ -25,8 +25,6 @@ const MyTutorials = () => {
     };
 
     const handleDelete = async (id) => {
-
-
         try {
             const { data } = await axiosSecure.delete(`/delete-tutorial/${id}`);
             fetchTutorials();

@@ -1,16 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
+import { axiosSecure } from "../hooks/useAxiosSecure";
 
 const categories = [
-    { title: "English tutors", teachers: "33,602", icon: "🕰️" },
-    { title: "Spanish tutors", teachers: "10,054", icon: "🎶" },
-    { title: "French tutors", teachers: "3,712", icon: "🗼" },
-    { title: "German tutors", teachers: "1,517", icon: "🏛️" },
-    { title: "Korean tutors", teachers: "2,542", icon: "🍝" },
-    { title: "Chinese tutors", teachers: "5,253", icon: "🏯" },
-    { title: "Arabic tutors", teachers: "3,651", icon: "🕌" },
-    { title: "Japanese tutors", teachers: "2,902", icon: "⛩️" },
-    { title: "Portuguese tutors", teachers: "1,636", icon: "🌉" },
+    { title: "English", teachers: "33,602", icon: "🕰️" },
+    { title: "Spanish", teachers: "10,054", icon: "🎶" },
+    { title: "French", teachers: "3,712", icon: "🗼" },
+    { title: "German", teachers: "1,517", icon: "🏛️" },
+    { title: "Korean", teachers: "2,542", icon: "🍝" },
+    { title: "Chinese", teachers: "5,253", icon: "🏯" },
+    { title: "Arabic", teachers: "3,651", icon: "🕌" },
+    { title: "Japanese", teachers: "2,902", icon: "⛩️" },
+    { title: "Portuguese", teachers: "1,636", icon: "🌉" },
 ];
 
 
@@ -19,9 +20,10 @@ const LanguageCategory = () => {
 
     const navigate = useNavigate();
 
-    const handleCardClick = () => {
-        navigate("/find-tutors");
+    const handleCardClick = (title) => {
+        navigate("/find-tutors", { state: { selectedLanguage: title } });
     };
+
 
     return (
         <div className="container mx-auto">
@@ -36,7 +38,7 @@ const LanguageCategory = () => {
                         <div className="flex items-center gap-4">
                             <span className="text-5xl">{cat.icon}</span>
                             <div>
-                                <h2 className="text-2xl font-semibold mb-2">{cat.title}</h2>
+                                <h2 className="text-2xl font-semibold mb-2">{cat.title} tutors</h2>
                                 <p className="text-sm text-gray-500">{cat.teachers} teachers</p>
                             </div>
                         </div>
