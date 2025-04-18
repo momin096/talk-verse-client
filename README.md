@@ -1,12 +1,51 @@
-# React + Vite
+# 🗣️ TalkVerse
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**TalkVerse** is a modern language tutor booking platform that connects learners with experienced language tutors. Inspired by platforms like Preply and Italki, TalkVerse provides a seamless interface for finding, booking, and reviewing tutors based on preferred languages.
 
-Currently, two official plugins are available:
+## 🌐 Live URL
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 [TalkVerse Web App](https://talk-verse-117af.web.app/)  
+🔗 [TalkVerse Server (Hosted on Vercel)](https://talk-verse-server-psi.vercel.app/)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🎯 Purpose
+
+TalkVerse aims to:
+- Help language learners connect with tutors from around the world.
+- Provide tutors with a platform to showcase and manage their tutorials.
+- Allow secure, token-based access control using JWT and cookies.
+
+---
+
+## 🚀 Key Features
+
+- 🔐 **Authentication & Authorization** using JWT and secure cookies.
+- 🌍 **Tutor Filtering** by language category and search.
+- 👨‍🏫 **Tutor CRUD Operations** (add, update, delete tutorials).
+- 📚 **My Tutorials** and **My Booked Tutors** dashboard.
+- ✅ **Protected Routes** for managing private data.
+- 💬 **Review System** with update functionality.
+- ☁️ Hosted on Firebase (Frontend) & Vercel (Backend).
+
+---
+
+## 🧰 Tech Stack & NPM Packages
+
+### 🖥️ Frontend
+- `React`
+- `React Router DOM`
+- `Axios`
+- `Tailwind CSS`
+- `Firebase` 
+- `React Hook Form` 
+- `react-hot-toast` 
+
+### 🌐 Backend (Express)
+- `Express.js`
+- `Cors`
+- `Cookie-parser`
+- `jsonwebtoken`
+- `MongoDB` 
+- `dotenv`
+
