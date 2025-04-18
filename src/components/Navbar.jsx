@@ -3,19 +3,21 @@ import logo from '../assets/logo.png'
 import { CiLogin } from "react-icons/ci";
 import { LuLogOut } from "react-icons/lu";
 import useAuth from '../hooks/useAuth';
+import toast from 'react-hot-toast';
 
 
 const Navbar = ({ theme, setTheme }) => {
-    const { user, logOut } = useAuth();
+    const { user, logOut, setUser } = useAuth();
 
 
     const handleLogOut = () => {
         logOut()
             .then(() => {
                 console.log('sign Out Success');
+                setUser(null)
             })
             .catch(err => {
-                console.log(err);
+                toast.error(err.message)
             })
     }
 
@@ -44,11 +46,18 @@ const Navbar = ({ theme, setTheme }) => {
                         {links}
                     </ul>
                 </div>
-                <div className="flex gap-2 items-center justify-center">
-                    <div >
+                <div className="flex gap-2 items-center justify-center ">
+                    <div className='hidden lg:flex'>
 
                         {
-                            user?.email ? <button onClick={handleLogOut} className=' hidden  text-white lg:flex hover:bg-[#968de7] px-5 py-2 border border-[#968de7] items-center gap-2 '>Log Out <LuLogOut className='text-2xl' /></button> : <Link to={'/login'} className=' hidden text-white lg:flex hover:bg-[#968de7] px-5 py-2 border border-[#968de7] items-center gap-2'>Login <CiLogin className='text-2xl' /></Link>
+                            user?.email ? <button onClick={handleLogOut} className=' text-white flex hover:bg-[#968de7] px-5 py-2 border border-[#968de7] items-center gap-2 '>Log Out <LuLogOut className='text-2xl' /></button> : <Link to={'/login'} className='  text-white flex hover:bg-[#968de7] px-5 py-2 border border-[#968de7] items-center gap-2'>Login <CiLogin className='text-2xl' /></Link>
+                        }
+
+                    </div>
+                    <div className='flex lg:hidden'>
+
+                        {
+                            user?.email ? '' : <Link to={'/login'} className='  text-white flex hover:bg-[#968de7] px-5 py-2 border border-[#968de7] items-center gap-2'>Login <CiLogin className='text-2xl' /></Link>
                         }
 
                     </div>
@@ -73,7 +82,7 @@ const Navbar = ({ theme, setTheme }) => {
                             {links}
                             <li>
                                 {
-                                    user?.email ? <Link to={'/login'}>Log Out</Link> : <Link to={'/login'}>Login</Link>
+                                    user?.email ? <Link onClick={handleLogOut}>Log Out</Link> : <Link to={'/login'}>Login</Link>
                                 }
                             </li>
                         </ul>
@@ -82,7 +91,6 @@ const Navbar = ({ theme, setTheme }) => {
                 {/* THEME CONTROLLER */}
                 <label className="swap swap-rotate ml-5">
 
-                    {/* this hidden checkbox controls the state */}
                     <input onChange={handleTheme} checked={theme === 'night'} type="checkbox" className="theme-controller" />
 
                     {/* sun icon */}

@@ -1,9 +1,12 @@
+import toast from "react-hot-toast";
 import useAuth from "../hooks/useAuth";
 import { axiosSecure } from "../hooks/useAxiosSecure";
+import { useNavigate } from "react-router-dom";
 
 
 const AddTutorials = () => {
     const { user } = useAuth();
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -21,9 +24,12 @@ const AddTutorials = () => {
         try {
 
             const { data } = await axiosSecure.post('/add-tutorials', formData, { withCredentials: true });
-            console.log(data);
+            if (data.insertedId) {
+                toast.success('Tutor Added !!')
+                navigate('/my-tutorials')
+            }
         } catch (err) {
-            console.log(err);
+            toast.error(err.message)
         }
 
     }

@@ -44,8 +44,8 @@ const SliderContainer = () => {
                         </p>
                         <div className="flex justify-center lg:justify-start gap-4">
 
-                            <Link to="/become-tutor" className="border border-[#6C63FF] text-[#6C63FF] px-6 py-3 rounded-xl hover:bg-[#6C63FF] hover:text-white transition">
-                            Find Tutors
+                            <Link to="/find-tutors" className="border border-[#6C63FF] text-[#6C63FF] px-6 py-3 rounded-xl hover:bg-[#6C63FF] hover:text-white transition">
+                                Find Tutors
                             </Link>
                         </div>
                     </div>
@@ -63,17 +63,17 @@ const SliderContainer = () => {
                     {/* Text Section */}
                     <div className="lg:w-1/2 text-center lg:text-left space-y-6">
                         <h1 className="text-4xl md:text-5xl font-bold text-base-100">
-                        Why TalkVerse?
+                            Why TalkVerse?
                         </h1>
                         <p className="text-lg text-base-100">
-                        Whether you're a beginner or brushing up your skills, our tutors customize lessons to fit your learning style and goals.
+                            Whether you're a beginner or brushing up your skills, our tutors customize lessons to fit your learning style and goals.
                         </p>
                         <div className="flex justify-center lg:justify-start gap-4">
                             <Link to="/find-tutors" className="bg-[#6C63FF] text-white px-6 py-3 rounded-xl hover:bg-[#594FE2] transition">
                                 Find Tutors
                             </Link>
 
-                           
+
                         </div>
                     </div>
 
@@ -90,14 +90,14 @@ const SliderContainer = () => {
                     {/* Text Section */}
                     <div className="lg:w-1/2 text-center lg:text-left space-y-6 ">
                         <h1 className="text-4xl md:text-5xl font-bold text-base-100">
-                        Join a Global Language Learning Community
+                            Join a Global Language Learning Community
                         </h1>
                         <p className="text-lg text-base-100">
-                        Practice with native speakers, gain confidence, and make friends around the world. Language learning has never been this engaging.
+                            Practice with native speakers, gain confidence, and make friends around the world. Language learning has never been this engaging.
                         </p>
                         <div className="flex justify-center lg:justify-start gap-4">
                             <Link to="/find-tutors" className="border border-[#6C63FF] text-[#6C63FF] px-6 py-3 rounded-xl hover:bg-[#6C63FF] hover:text-white transition">
-                            Find Tutors
+                                Find Tutors
                             </Link>
                         </div>
                     </div>
@@ -108,7 +108,7 @@ const SliderContainer = () => {
                     </div>
                 </div>
             </SwiperSlide>
-            
+
 
         </Swiper>
     </>

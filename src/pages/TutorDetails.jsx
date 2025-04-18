@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { axiosSecure } from '../hooks/useAxiosSecure';
 import { useParams } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
+import toast from 'react-hot-toast';
 
 const TutorDetails = () => {
 
@@ -41,10 +42,9 @@ const TutorDetails = () => {
 
         try {
             // Make a post request
-            const { data } = await axiosSecure.post('/add-book', bookedData);
-            console.log(data);
+             await axiosSecure.post('/add-book', bookedData);
         } catch (err) {
-            console.log(err);
+            toast.error(err.message)
         }
     }
 

@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Lottie from "lottie-react";
-
+import toast from 'react-hot-toast'
 import loginAnnimation from '../../assets/login.json'
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
@@ -26,12 +26,15 @@ const Login = () => {
 
         signIn(email, password)
             .then(result => {
+                if (result.user) {
 
-                console.log(result.user);
-                navigate(from)
+                    toast.success('Login Success')
+                    navigate(from)
+                }
+
             })
             .catch(err => {
-                console.log(err);
+                toast.error(err.message)
             })
     }
 
@@ -40,11 +43,14 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
-                navigate(from)
-                console.log(result.user);
+                if (result.user) {
+                    toast.success('Login Success')
+                    navigate(from)
+                }
+
             })
             .catch(err => {
-                console.log(err);
+                toast.error(err.message)
             })
     }
 
@@ -53,7 +59,7 @@ const Login = () => {
     return (
         <div className=''>
             {/* <Navbar /> */}
-            <div className="min-h-[calc(100vh-30px)] flex flex-row-reverse items-center justify-center bg-base-100 px-4">
+            <div className="min-h-[calc(100vh-30px)] flex flex-col lg:flex-row-reverse items-center justify-center bg-base-100 px-4">
                 <div>
                     <Lottie animationData={loginAnnimation} />
                 </div>

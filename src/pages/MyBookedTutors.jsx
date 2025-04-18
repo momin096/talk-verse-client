@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { axiosSecure } from '../hooks/useAxiosSecure';
 import useAuth from '../hooks/useAuth';
+import toast from 'react-hot-toast';
 
 const MyBookedTutors = () => {
     const [booked, setBooked] = useState([]);
@@ -11,9 +12,9 @@ const MyBookedTutors = () => {
             try {
                 const { data } = await axiosSecure.get(`/my-booked-tutors/${user?.email}`);
                 setBooked(data);
-                console.log(data);
+
             } catch (error) {
-                console.error('Failed to fetch bookings:', error);
+                toast.error('Failed to fetch bookings:', error)
             }
         };
 
@@ -23,12 +24,11 @@ const MyBookedTutors = () => {
     const handleReview = async (tutorId) => {
         try {
             const { data } = await axiosSecure.patch(`/update-review/${tutorId}`);
-            console.log(data);
             if (data.modifiedCount > 0) {
-                console.log(data);
+                toast.success('Review Added')
             }
-        } catch (error) {
-            console.error('Review update failed:', error);
+        } catch (err) {
+            // toast.error('Review update failed:', error)
         }
     };
 

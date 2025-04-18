@@ -5,6 +5,7 @@ import Lottie from "lottie-react";
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useAuth from '../../hooks/useAuth';
+import toast from 'react-hot-toast';
 
 
 
@@ -35,24 +36,23 @@ const Register = () => {
                 console.log(result.user);
                 UpdateUserInfo(updatedDoc)
                     .then(() => {
-                        console.log('account created Successfully');
+                        toast.success('account created Successfully')
                         navigate('/')
                     })
             })
             .catch(err => {
-                console.log(err);
+                toast.error(err.message)
             })
     }
 
     // Google Sign in 
     const handleGoogleSignIn = () => {
         googleSignIn()
-            .then(result => {
-
-                console.log(result.user);
+            .then(() => {
+                toast.success('Login Success')
             })
             .catch(err => {
-                console.log(err);
+                toast.error(err.message)
             })
     }
 
@@ -60,10 +60,9 @@ const Register = () => {
 
     return (
         <div className=''>
-            {/* navbar */}
             {/* <Navbar /> */}
-            <div className="min-h-[calc(100vh-30px)] flex  items-center justify-center bg-base-100 px-4">
-                <div className='w-[700px] pr-32'>
+            <div className="min-h-[calc(100vh-30px)] flex flex-col lg:flex-row  items-center justify-center bg-base-100 px-4">
+                <div className='w-[500px] lg:w-[700px] pr-32'>
                     <Lottie animationData={registerAnnimation} />
                 </div>
                 <div className="w-full max-w-md space-y-4 flex-1 -ml-32">

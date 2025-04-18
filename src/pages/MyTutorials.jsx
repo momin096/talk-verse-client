@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import useAxiosSecure from '../hooks/useAxiosSecure';
+import toast from 'react-hot-toast';
 
 const MyTutorials = () => {
     const [tutorials, setTutorials] = useState([]);
@@ -9,7 +10,6 @@ const MyTutorials = () => {
     const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
-        if (!user?.email) return;
         fetchTutorials();
     }, [user?.email]);
 
@@ -18,26 +18,48 @@ const MyTutorials = () => {
             const { data } = await axiosSecure.get(`/my-tutorials/${user.email}`);
             setTutorials(data);
         } catch (error) {
-            console.error('Error fetching tutorials:', error);
+            toast.error(error.message)
         }
     };
+
+
 
     const handleDelete = async (id) => {
         try {
             const { data } = await axiosSecure.delete(`/delete-tutorial/${id}`);
             fetchTutorials();
             if (data.deletedCount) {
-                console.log("Delete Success");
+                toast.success("Delete Success")
             }
         } catch (err) {
-            console.log(err);
+            toast.error(err.message)
         }
+    }
 
-
+    const mordernDelete = id => {
+        toast((t) => (
+            <span className='flex gap-3 items-center'>
+                <p>Are you <b>sure ?</b></p>
+                <div className='flex gap-2 items-center'>
+                    <button
+                        className='text-white bg-red-600 py-2 px-4 rounded-md font-semibold '
+                        onClick={() => {
+                            handleDelete(id)
+                            toast.dismiss(t.id)
+                        }}
+                    >Yes</button>
+                    <button
+                        className='text-white bg-green-500 py-2 px-4 rounded-md font-semibold '
+                        onClick={() => toast.dismiss(t.id)}>
+                        Cancel
+                    </button>
+                </div>
+            </span>
+        ));
     }
 
     return (
-        <div className="max-w-6xl mx-auto px-4 py-10">
+        <div className="max-w-6xl mx-auto px-4 py-10 min-h-screen">
             <div className="flex justify-between items-center mb-8">
                 <h2 className="text-3xl font-bold text-[#6C63FF]">📚 My Tutorials</h2>
                 <Link
@@ -58,19 +80,19 @@ const MyTutorials = () => {
                             className="border border-gray-200 p-4 rounded-lg shadow-sm hover:shadow-md transition flex gap-4"
                         >
                             <img
-                                src={tutorial.photo}
-                                alt={tutorial.title}
+                                src={tutorial?.photo}
+                                alt={tutorial?.title}
                                 className="w-32 h-32 object-cover rounded-md"
                             />
 
                             <div className="flex-1 flex flex-col justify-between">
                                 <div>
-                                    <h3 className="text-xl font-semibold ">{tutorial.title}</h3>
+                                    <h3 className="text-xl font-semibold ">{tutorial?.title}</h3>
                                     <p className=" mt-2">
-                                        {tutorial.description?.slice(0, 100)}...
+                                        {tutorial?.description?.slice(0, 100)}...
                                     </p>
-                                    <p className="text-sm  mt-1">Language: {tutorial.language}</p>
-                                    <p className="text-sm ">Price: ${tutorial.price}</p>
+                                    <p className="text-sm  mt-1">Language: {tutorial?.language}</p>
+                                    <p className="text-sm ">Price: ${tutorial?.price}</p>
                                 </div>
 
                                 <div className="flex gap-2 mt-4">
@@ -81,7 +103,7 @@ const MyTutorials = () => {
                                         Edit
                                     </Link>
                                     <button
-                                        onClick={() => handleDelete(tutorial._id)}
+                                        onClick={() => mordernDelete(tutorial._id)}
                                         className="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600"
                                     >
                                         Delete

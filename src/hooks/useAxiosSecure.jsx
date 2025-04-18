@@ -1,10 +1,12 @@
 import axios from "axios";
 import useAuth from "./useAuth";
-import { useNavigate, useNavigationType } from "react-router-dom";
 import { useEffect } from "react";
 
+
+// 
 export const axiosSecure = axios.create({
-    baseURL: 'http://localhost:8000',
+    // baseURL: 'http://localhost:8000',
+    baseURL: 'https://talk-verse-server-psi.vercel.app',
     withCredentials: true,
 });
 
@@ -13,24 +15,17 @@ export const axiosSecure = axios.create({
 
 const useAxiosSecure = () => {
     const { logOut } = useAuth();
-    const navigate = useNavigate();
-    useEffect(() => {
-        axiosSecure.interceptors.response.use(
-            res => {
-                return res
-            },
-            async error => {
-                console.log('err caught axios', error.response);
-                if (error.response.status === 401 || error.response.status === 403) {
-                    // logout
-                    logOut()
-                    // navigate to login
-                    // navigate('/login')
+    // const navigate = useNavigate();
 
-                }
+    useEffect(() => {
+        axiosSecure.interceptors.response.use(res => {
+            return res
+        }, async error => {
+            if (error.response.status === 401 || error.response.status === 403) {
+                logOut()
             }
-        )
-    }, [logOut, navigate])
+        })
+    }, [logOut])
     return axiosSecure;
 
 };

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { axiosSecure } from '../hooks/useAxiosSecure';
 import Loading from '../components/Loading';
+import toast from 'react-hot-toast';
 
 const EditTutorial = () => {
     const { id } = useParams();
@@ -32,10 +33,13 @@ const EditTutorial = () => {
         };
 
         try {
-            await axiosSecure.put(`/update-tutorial/${id}`, updatedTutorial);
-            navigate('/my-tutorials');
+            const { data } = await axiosSecure.put(`/update-tutorial/${id}`, updatedTutorial);
+            if (data.modifiedCount) {
+                toast.success('Tutor Updated')
+                navigate('/my-tutorials');
+            }
         } catch (error) {
-            console.error("Update failed:", error);
+            toast.error("Update failed:", error)
         }
     };
 

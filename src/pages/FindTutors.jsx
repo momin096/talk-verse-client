@@ -3,6 +3,7 @@ import { axiosSecure } from "../hooks/useAxiosSecure";
 import TutorCard from "../components/TutorCard";
 import { useLocation } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
+import toast from "react-hot-toast";
 
 const FindTutors = () => {
     const [tutors, setTutors] = useState([])
@@ -24,7 +25,7 @@ const FindTutors = () => {
                 const { data } = await axiosSecure.get(url);
                 setTutors(data);
             } catch (error) {
-                console.error("Failed to fetch tutors", error);
+                toast.error(error.message)
             }
         };
 
@@ -32,7 +33,6 @@ const FindTutors = () => {
     }, [selectedLanguage, search]);
 
 
-    console.log(tutors);
 
 
     return (

@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
-import { axiosSecure } from "../hooks/useAxiosSecure";
 
 const categories = [
     { title: "English", teachers: "33,602", icon: "🕰️" },

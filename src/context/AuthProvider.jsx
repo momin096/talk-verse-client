@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
     const provider = new GoogleAuthProvider();
 
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     const createUser = (email, password) => {
         setLoading(true)
@@ -70,6 +70,8 @@ const AuthProvider = ({ children }) => {
             else {
                 const { data } = await axiosSecure.post('/logout', {});
                 console.log(data);
+                setUser(null);
+                setLoading(false)
             }
         })
         return () => {

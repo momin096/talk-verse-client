@@ -10,11 +10,13 @@ import Register from "./pages/Authentication/Register";
 import TutorDetails from "./pages/TutorDetails";
 import EditTutorial from "./pages/EditTutorial";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import ErrorPage from "./pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',
